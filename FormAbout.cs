@@ -34,7 +34,7 @@ namespace fortuneTeller
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void FormAbout_Load(object sender, EventArgs e)
