@@ -39,8 +39,18 @@ namespace fortuneTeller
 
         private void 내용불러오기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormHistory formHistory = new FormHistory();
-            formHistory.Show();
+            FormHistory formHistory = Application.OpenForms["FormHistory"] as FormHistory;
+            if (formHistory != null)
+            {
+                formHistory.Activate();
+
+            }
+            else
+            {
+                formHistory = new FormHistory();
+                formHistory.Show();
+
+            }
         }
 
         private void 끝내기ToolStripMenuItem_Click(object sender, EventArgs e)
