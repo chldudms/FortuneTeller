@@ -1,21 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace fortuneTeller
 {
-    public partial class Form1: Form
+    public partial class Form1 : Form
     {
+        List<string> results;
+
         public Form1()
         {
             InitializeComponent();
+            LoadResults();
         }
+
+        private void LoadResults()
+        {
+
+            try
+            {
+                string filename = "results.csv";
+                results = File.ReadAllLines(filename).ToList();
+
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show("결과 파일을 찾을 수 없습니다: \n{ex.Message}", "파일 없음",
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(".권한이 없습니다: \n{ex.Message}", "권한 오류",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("결과 파일을 불러오는 중 오류가 발생했습니다: \n{ex.Message}", "알 수 없는 오류",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -55,7 +81,7 @@ namespace fortuneTeller
 
         private void 끝내기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
         }
 
         private void 포츈텔러정보ToolStripMenuItem_Click(object sender, EventArgs e)
