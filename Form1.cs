@@ -73,7 +73,7 @@ namespace fortuneTeller
             }
             else
             {
-                formHistory = new FormHistory();
+                formHistory = new FormHistory(this);
                 formHistory.Show();
 
             }
