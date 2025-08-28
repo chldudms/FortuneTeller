@@ -56,7 +56,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbBirthday);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 27);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 302);
             this.groupBox1.TabIndex = 0;
@@ -70,6 +70,7 @@
             this.tbBirthHour.Name = "tbBirthHour";
             this.tbBirthHour.Size = new System.Drawing.Size(100, 25);
             this.tbBirthHour.TabIndex = 3;
+            this.tbBirthHour.TextChanged += new System.EventHandler(this.tbBirthHour_TextChanged);
             // 
             // label2
             // 
@@ -86,6 +87,7 @@
             this.tbBirthday.Name = "tbBirthday";
             this.tbBirthday.Size = new System.Drawing.Size(100, 25);
             this.tbBirthday.TabIndex = 1;
+            this.tbBirthday.TextChanged += new System.EventHandler(this.tbBirthday_TextChanged);
             // 
             // label1
             // 

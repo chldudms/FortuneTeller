@@ -97,7 +97,18 @@ namespace fortuneTeller
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-        
+            string birthday = tbBirthday.Text;
+            string birthhour = tbBirthHour.Text;
+
+            string result = GetFortune();
+
+            string saju = result.Split('|')[0];
+            string message = result.Split('|')[1];
+
+            tbResult.Text = $"{birthday} {birthhour}{Environment.NewLine}"
+           + $"{saju}{Environment.NewLine}"
+           + $"{message}";
+            SaveHistory($"{birthday} {birthhour}|{result}");
         }
 
         private string GetFortune()
@@ -105,6 +116,34 @@ namespace fortuneTeller
             Random random = new Random();
             int index = random.Next(0,results.Count);
             return results[index]; 
+        }
+
+        private void SaveHistory(string history)
+        {
+            try
+            {
+             string filename = "history.csv";
+             File.AppendAllText(filename, history + Environment.NewLine);
+            }
+            catch(UnauthorizedAccessException ex)
+            {
+                MessageBox.Show($"권한 없음 오류 발생 \n{ex.Message}","권한 오류");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"알 수 없는 오류 발생 \n{ex.Message}", "알 수 없는 오류");
+
+            }
+        }
+           
+        private void tbBirthday_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbBirthHour_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
