@@ -14,12 +14,20 @@ namespace fortuneTeller
     public partial class FormHistory : Form
     {
         List<string> history;
-        Form form1;
+        Form1 form1;
+
         public FormHistory(Form1 form)
         {
             this.form1 = form;
             InitializeComponent();
+            UpdateHistory();
+        }
+
+        private void UpdateHistory()
+        {
             LoadHistory();
+            lbHistory.Items.Clear();
+            lbHistory.Items.AddRange(history.ToArray());
         }
 
         private void LoadHistory()
@@ -44,6 +52,23 @@ namespace fortuneTeller
             }
         }
 
+        private ListBox GetLbHistory()
+        {
+            return lbHistory;
+        }
 
+        private void lbHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbHistory.SelectedItem != null)
+            {
+                string message = lbHistory.SelectedItem.ToString();
+                form1.LoadHistory(message);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateHistory();
+        }
     }
 }

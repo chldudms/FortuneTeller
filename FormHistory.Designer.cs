@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbHistory = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnRefresh
@@ -41,28 +41,28 @@
             this.btnRefresh.Text = "새로고침";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lbHistory
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbHistory.FormattingEnabled = true;
+            this.lbHistory.ItemHeight = 15;
+            this.lbHistory.Items.AddRange(new object[] {
             "2025년 8월 26일 둘리: 뭐시기 저시기 .... ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ",
             "2025년 8월 26일 둘리: 뭐시기 저시기 .... ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ",
             "2025년 8월 26일 둘리: 뭐시기 저시기 ....ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ",
             "2025년 8월 26일 둘리: 뭐시기 저시기 .... ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ",
             "2025년 8월 26일 둘리: 뭐시기 저시기 .... ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ"});
-            this.listBox1.Location = new System.Drawing.Point(12, 122);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(776, 304);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lbHistory.Location = new System.Drawing.Point(12, 122);
+            this.lbHistory.Name = "lbHistory";
+            this.lbHistory.Size = new System.Drawing.Size(776, 304);
+            this.lbHistory.TabIndex = 1;
+            this.lbHistory.SelectedIndexChanged += new System.EventHandler(this.lbHistory_SelectedIndexChanged);
             // 
             // FormHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbHistory);
             this.Controls.Add(this.btnRefresh);
             this.Name = "FormHistory";
             this.Text = "내역 불러오기";
@@ -73,6 +73,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbHistory;
     }
 }

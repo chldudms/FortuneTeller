@@ -135,6 +135,24 @@ namespace fortuneTeller
 
             }
         }
+
+        public void LoadHistory(string history)
+        {
+            //20070327 | 사주사주사주 | 메시지메시지메시지
+            string birthday = history.Split('|')[0];
+            string birthhour = history.Split('|')[1];
+
+            tbBirthday.Text = birthday;
+
+
+            string result = GetFortune();
+
+            string saju = result.Split('|')[0];
+            string message = result.Split('|')[1];
+            tbResult.Text = $"{birthday} {birthhour}{Environment.NewLine}"
+             + $"{saju}{Environment.NewLine}"
+             + $"{message}";
+        }
            
         private void tbBirthday_TextChanged(object sender, EventArgs e)
         {
